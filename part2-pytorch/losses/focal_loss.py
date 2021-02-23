@@ -40,7 +40,7 @@ class FocalLoss(nn.Module):
         #############################################################################
         # TODO: Implement forward pass of the focal loss                            #
         #############################################################################
-        ce_loss = F.cross_entropy(input, target, reduction=self.reduction, weight=self.weight) 
+        ce_loss = F.cross_entropy(input, target, reduction='mean', weight=self.weight) 
         pt = torch.exp(-ce_loss)
         loss = ((1 - pt) ** self.gamma * ce_loss).mean()
         #############################################################################
