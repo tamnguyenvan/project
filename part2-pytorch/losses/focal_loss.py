@@ -15,6 +15,7 @@ def reweight(cls_num_list, beta=0.9999):
     # TODO: reweight each class by effective numbers                            #
     #############################################################################
     per_cls_weights = [(1 - beta) / (1 - beta ** n) for n in cls_num_list]
+    per_cls_weights = torch.tensor(per_cls_weights)
     #############################################################################
     #                              END OF YOUR CODE                             #
     #############################################################################
